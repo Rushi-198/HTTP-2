@@ -24,7 +24,7 @@ export class PostService {
 
 
   getAllposts(): Observable<Ipost[]> {
-    return this._http.get<responsepost>(this.postUrl)
+    return this._http.get<Ipost[]>(this.postUrl)
       .pipe(
         map(res => {
           const postArray = []
@@ -36,11 +36,31 @@ export class PostService {
             }
             console.log(obj)
             postArray.push(obj)
+
             console.log(postArray)
           }
-          return postArray;
+          return postArray.reverse();
+
         })
+
       )
+
+    // .pipe(
+    //   map(res => {
+    //     const postArr = []
+    //     for (const key in res) {
+    //       console.log(res[ key ])
+    //       let obj = {
+    //         id: key,
+    //         title: res[ key ].title
+    //       }
+    //       console.log(obj)
+    //       postArr.push(obj)
+    //     }
+    //     return postArr;
+    //   })
+
+    // )
   }
 
 

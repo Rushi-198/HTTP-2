@@ -37,6 +37,7 @@ export class PostformComponent implements OnInit {
     this._post.getAllposts()
       .subscribe(res => {
         console.log(res)
+        
       })
 
   }
@@ -59,8 +60,11 @@ export class PostformComponent implements OnInit {
         .subscribe(res => {
           console.log(res)
           this._router.navigate([ '/' ])
+
         })
       this.arr.unshift(obj)
+
+
     }
   }
 
